@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,7 +7,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager Instance { get; private set; }
-    public GameObject currentBuilding;
+    public BuildingInfo currentBuilding;
     
     [SerializeField]
     private Transform BuildingParent; // This should be a child of "Environment"
@@ -26,11 +27,20 @@ public class SpawnManager : MonoBehaviour
     }
 
 
-    public void BuildBuilding(Vector2 position)
+    public void TrySpawnBuilding(Vector2 position)
     {
-        Debug.Log($"Build Block at {position}.");
+        if(EconomicsManager.Instance.TryPayBuildCosts(currentBuilding))
+        {
+            SpawnCurrentBuilding(position);
+        }
+    }
+
+    private void SpawnCurrentBuilding(Vector2 position)
+    {
         Vector3 buildPosition = position;
         Quaternion rotation = Quaternion.identity;
-        Instantiate(currentBuilding, buildPosition, rotation, BuildingParent);
+        PlacedBuilding building = Instantiate(currentBuilding.BuildingPrefab, buildPosition, rotation, BuildingParent).GetComponent<PlacedBuilding>();
+        building.ConsumedUnits = currentBuilding.ConsumesUnits;
+        building.ConsumedAmounts = currentBuilding.ConsumesAmounts;
     }
 }

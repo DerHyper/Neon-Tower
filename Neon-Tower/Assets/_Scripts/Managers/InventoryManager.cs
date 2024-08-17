@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public void Select(GameObject Building)
+    public void Select(BuildingInfo Building)
     {
         SpawnManager.Instance.currentBuilding = Building;
     }
