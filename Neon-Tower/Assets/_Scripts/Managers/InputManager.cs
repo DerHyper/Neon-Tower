@@ -18,12 +18,16 @@ public class InputManager : MonoBehaviour
 
     private void TryBuildBuilding()
     {
-        
-
-        if(IsMouseInsideSpawnArea(out Vector2 currentPosition))
+        if(IsMouseInsideSpawnArea(out Vector2 currentPosition) && IsNotBlocked())
         {
             SpawnManager.Instance.TrySpawnBuilding(currentPosition);
         }
+    }
+
+    private bool IsNotBlocked()
+    {
+        return !_buildingSpawnArea.gameObject.GetComponent<SpawnArea>().IsBlocked;
+        
     }
 
     private bool IsMouseInsideSpawnArea(out Vector2 currentPosition)
