@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MilestoneManager : MonoBehaviour
 {
+    
     [SerializeField]
     private Transform _milestonePlatformParent; //Should be located at Environment
     [SerializeField]
@@ -41,6 +42,7 @@ public class MilestoneManager : MonoBehaviour
             _openMilestoneMarks.Remove(smallestOpenMilestone);
             CompleteMileStoneAt(CurrentHeight);
             FreezeAllObjectsBelow(CurrentHeight);
+            WindManager.Instance.IncreaseWindInsensity();
         }
     }
 
