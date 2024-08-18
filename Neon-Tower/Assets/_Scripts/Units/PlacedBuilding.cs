@@ -9,17 +9,29 @@ public class PlacedBuilding : MonoBehaviour
     public List<EcoUnit> ConsumedUnits;
     [HideInInspector]
     public List<int> ConsumedAmounts;
+    public bool IsFalling {get; private set;}
+
     [SerializeField]
     private float ScorePenaltyFactor = 2;
-
-
     private bool _isStatic = false;
+    private void Start() {
+        IsFalling = true;
+        gameObject.layer = 2; // Ignore Raycast
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!_isStatic && other.gameObject.tag == "DestructionZone")
         {
             DestroySelf();
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        IsFalling = false;
+        gameObject.layer = 0; // Default (Raycasts can now hit for height calculation)
+
+        Debug.Log("NOT FALLUNG ANYMORE");
     }
 
     public void Freeze()
