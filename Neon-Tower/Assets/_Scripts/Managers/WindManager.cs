@@ -10,6 +10,8 @@ public class WindManager : MonoBehaviour
     [SerializeField]
     private float _windInterval = 1;
     [SerializeField]
+    private float _windTimeout = 1;
+    [SerializeField]
     private float _windUplift = 1;
     [SerializeField]
     private float WindIncreaseAfterMilestone = 0.2f;
@@ -50,15 +52,19 @@ public class WindManager : MonoBehaviour
 
     private IEnumerator WindLoopRight()
     {
-        yield return new WaitForSeconds(_windInterval);
         currentWindDirection = WindDirection.Right;
+        yield return new WaitForSeconds(_windInterval);
+        currentWindDirection = WindDirection.None;
+        yield return new WaitForSeconds(_windTimeout);
         StartCoroutine(WindLoopLeft());
     }
 
     private IEnumerator WindLoopLeft()
     {
-        yield return new WaitForSeconds(_windInterval);
         currentWindDirection = WindDirection.Left;
+        yield return new WaitForSeconds(_windInterval);
+        currentWindDirection = WindDirection.None;
+        yield return new WaitForSeconds(_windTimeout);
         StartCoroutine(WindLoopRight());
     }
 
