@@ -25,6 +25,8 @@ public class HeightManager : MonoBehaviour
         float height = GetHeighestPonit();
         UpdateHeightUI(height);
         UpdateCameraPosition(height);
+        int roundedHeight = (int)Math.Round(height); // Round for uniformity with score label
+        MilestoneManager.Instance.CheckMilestoneReached(roundedHeight);
     }
 
     private void UpdateCameraPosition(float height)
