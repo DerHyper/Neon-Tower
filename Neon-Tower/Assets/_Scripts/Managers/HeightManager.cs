@@ -11,13 +11,36 @@ public class HeightManager : MonoBehaviour
 {
     public RectTransform HeigtScoreUI;
     public TMP_Text HeightScoreLabel;
+    public GameObject cameraCenterPonit;
+    [SerializeField]
+    private float _cameraMovementSpeed = 0.1f;
+    private float _cameraStartHeight;
     private const int RayCount = 20;
+    private void Start() 
+    {
+        _cameraStartHeight = cameraCenterPonit.transform.position.y; 
+    }
     private void FixedUpdate()
+    {
+        float height = GetHeighestPonit();
+        UpdateHeightUI(height);
+        UpdateCameraPosition(height);
+    }
+
+    private void UpdateCameraPosition(float height)
+    {
+        // if (height < _cameraMovementStart) return;
+        Vector3 currentPosition = cameraCenterPonit.transform.position;
+        Vector3 goalPosition = new(currentPosition.x, Math.Max(height,_cameraStartHeight),-10);
+        //Vector3 lerpPosition = Vector3.Lerp(currentPosition, goalPosition, _cameraMovementSpeed);
+        cameraCenterPonit.transform.position = goalPosition;
+    }
+
+    private float GetHeighestPonit()
     {
         float yPoint = GetRayStartPoint();
         float height = FindHeighestRayHit(yPoint);
-        UpdateHeightUI(height);
-        Debug.Log("Heighest Ponit:"+ height);
+        return height;
     }
 
     private void UpdateHeightUI(float height)
@@ -42,7 +65,8 @@ public class HeightManager : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(RayStartPosition, Vector2.down);
 
             // Check: Is Building, Is not falling
-            if (hit.collider.gameObject.tag != "Building") continue;
+            if (hit.collider == null) continue;
+            if (!hit.collider.gameObject.tag.Equals("Building")) continue;
             if (hit.collider.gameObject.GetComponent<PlacedBuilding>().IsFalling) continue;
 
             hitHeights.Add(hit.point.y);
