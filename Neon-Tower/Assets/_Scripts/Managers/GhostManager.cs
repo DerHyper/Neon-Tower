@@ -6,6 +6,8 @@ using UnityEngine;
 public class GhostManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject _guidlines;
+    [SerializeField]
     private RectTransform _buildingSpawnArea;
     [SerializeField]
     private Color _activeGhostColor;
@@ -28,24 +30,24 @@ public class GhostManager : MonoBehaviour
             Instance = this;
         }
     }
+    private void Start() 
+    {
+        if (_guidlines)
+        {
+            _guidlines = Instantiate(_guidlines);   
+        }
+    }
     private void Update()
     {
         if (_currentGhost)
         {
-            UpdateGhostPosition();
+            UpdatePositionToMouse(_currentGhost);
             UpdateGhostColor();
-        }
-    }
 
-    private void UpdateGhostColor()
-    {
-        if (InputManager.Instance.IsMouseInsideSpawnArea())
-        {
-            ChangeGhostColor(_activeGhostColor);
-        }
-        else
-        {
-            ChangeGhostColor(_inactiveGhostColor);
+            if (_guidlines)
+            {
+                UpdatePositionToMouse(_guidlines);
+            }
         }
     }
 
@@ -61,6 +63,18 @@ public class GhostManager : MonoBehaviour
     public void UpdateCurrentBuilding(BuildingInfo buildingInfo)
     {
         ChangeGhost(buildingInfo.BuildingPrefab);
+    }
+
+    private void UpdateGhostColor()
+    {
+        if (InputManager.Instance.IsMouseInsideSpawnArea())
+        {
+            ChangeGhostColor(_activeGhostColor);
+        }
+        else
+        {
+            ChangeGhostColor(_inactiveGhostColor);
+        }
     }
 
     private void ChangeGhost(GameObject buildingPrefab)
@@ -84,9 +98,9 @@ public class GhostManager : MonoBehaviour
         }
     }
 
-    private void UpdateGhostPosition()
+    private void UpdatePositionToMouse(GameObject target)
     {
         Vector3 cameraPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _currentGhost.transform.position = new(cameraPosition.x, cameraPosition.y, 0); // Clip in front of Camera
+        target.transform.position = new(cameraPosition.x, cameraPosition.y, 0); // Clip in front of Camera
     }
 }
