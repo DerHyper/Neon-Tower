@@ -23,7 +23,7 @@ public class EcoUnit : MonoBehaviour
 
     public bool CanSubtract(int amount)
     {
-        return Current - amount > 0;
+        return Current - amount >= 0;
     }
 
     public bool TrySubtract(int amount)
@@ -36,7 +36,7 @@ public class EcoUnit : MonoBehaviour
         Current -= amount;
         Debug.Log("ScoreManager: "+ScoreManager.Instance);
         Debug.Log("amount: "+amount);
-        ScoreManager.Instance.AddScore(amount);
+        //ScoreManager.Instance.AddScore(amount);
         UpdateUI();
         return true;
     }

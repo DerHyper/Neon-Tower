@@ -5,11 +5,12 @@ using UnityEngine;
 public class EconomicsManager : MonoBehaviour
 {
     public static EconomicsManager Instance { get; private set; }
-    [SerializeField]
     public EcoUnit Games;
     public EcoUnit Drinks;
     public EcoUnit Residents;
     public EcoUnit Ramen;
+    [SerializeField]
+    private int _startUnitAmount;
 
     private void Awake()
     {
@@ -27,7 +28,9 @@ public class EconomicsManager : MonoBehaviour
 
     private void Start()
     {
-        Residents.TryAdd(100);
+        Games.TryAdd(_startUnitAmount);
+        Drinks.TryAdd(_startUnitAmount);
+        Ramen.TryAdd(_startUnitAmount);
     }
 
     public bool TryPayBuildCosts(BuildingInfo building)
@@ -39,6 +42,7 @@ public class EconomicsManager : MonoBehaviour
             int amount = building.ConsumesAmounts[i];
             if (!unit.CanSubtract(amount))
             {
+                Debug.Log("Not Enougth: ", building.ConsumesUnits[i]);
                 return false;
             }
         }
@@ -52,6 +56,7 @@ public class EconomicsManager : MonoBehaviour
         }
 
         TryAdd(building.GeneratesUnit, building.GeneratesAmount);
+        ScoreManager.Instance.AddScore(building.GeneratesAmount);
 
         return true;
     }
