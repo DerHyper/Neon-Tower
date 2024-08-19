@@ -1,19 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlacedBuilding : MonoBehaviour
 {
+    // Rest of the Eco Stuff, might get readded later
+    // [HideInInspector]
+    // public List<EcoUnit> ConsumedUnits;
+    // [HideInInspector]
+    // public List<int> ConsumedAmounts;
     [HideInInspector]
-    public List<EcoUnit> ConsumedUnits;
+    public EcoUnit GeneratesUnit;
     [HideInInspector]
-    public List<int> ConsumedAmounts;
+    public int GeneratesAmount;
     public bool IsFalling { get; private set; }
-
     [SerializeField]
     private float ScorePenaltyFactor = 2;
     private bool _isStatic = false;
+    private Color _destroyColor = Color.red;
     private void Start()
     {
         IsFalling = true;
@@ -38,6 +44,28 @@ public class PlacedBuilding : MonoBehaviour
         gameObject.layer = 0; // Default (Raycasts can now hit for height calculation)
     }
 
+    private void OnMouseEnter()
+    {
+        // Change Color to destroy
+        GetComponentInChildren<SpriteRenderer>().color = _destroyColor;
+    }
+
+    private void OnMouseExit()
+    {
+        // Change Color to normal
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+    }
+
+    private void OnMouseOver()
+    {
+        // Leftclick to Destroy
+        if (Input.GetMouseButton(0))
+        {
+            SelfDestroy();
+        }
+    }
+
+
     public void Freeze()
     {
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -57,13 +85,24 @@ public class PlacedBuilding : MonoBehaviour
 
     private void RefundCostsAndScore()
     {
-        // Refund units
-        for (int i = 0; i < ConsumedUnits.Count; i++)
-        {
-            EcoUnit unit = ConsumedUnits[i];
-            int amount = ConsumedAmounts[i];
-            unit.TryAdd(amount);
-            ScoreManager.Instance.RemoveScore(amount * ScorePenaltyFactor);
-        }
+        // Rest of the Eco Stuff, might get readded later
+        // // Refund units 
+        // for (int i = 0; i < ConsumedUnits.Count; i++)
+        // {
+        //     EcoUnit unit = ConsumedUnits[i];
+        //     int amount = ConsumedAmounts[i];
+        //     unit.TrySubtract(amount);
+        //     ScoreManager.Instance.RemoveScore(amount * ScorePenaltyFactor);
+        // }
+
+        EconomicsManager.Instance.TrySubtract(GeneratesUnit,GeneratesAmount);
+        ScoreManager.Instance.RemoveScore(GeneratesAmount * ScorePenaltyFactor);
     }
+
+    private void SelfDestroy()
+    {
+        RefundCostsAndScore();
+        Destroy(gameObject);
+    }
+
 }
