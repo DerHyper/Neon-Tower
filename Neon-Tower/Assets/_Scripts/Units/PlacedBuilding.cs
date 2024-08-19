@@ -59,7 +59,7 @@ public class PlacedBuilding : MonoBehaviour
     private void OnMouseOver()
     {
         // Leftclick to Destroy
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !_isStatic)
         {
             SelfDestroy();
         }
