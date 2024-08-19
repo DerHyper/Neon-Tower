@@ -47,7 +47,10 @@ public class PlacedBuilding : MonoBehaviour
     private void OnMouseEnter()
     {
         // Change Color to destroy
-        GetComponentInChildren<SpriteRenderer>().color = _destroyColor;
+        if(!_isStatic)
+        {
+            GetComponentInChildren<SpriteRenderer>().color = _destroyColor;
+        }
     }
 
     private void OnMouseExit()
@@ -59,7 +62,7 @@ public class PlacedBuilding : MonoBehaviour
     private void OnMouseOver()
     {
         // Leftclick to Destroy
-        if (Input.GetMouseButton(0) && !_isStatic)
+        if (Input.GetMouseButtonDown(0) && !_isStatic)
         {
             SelfDestroy();
         }
