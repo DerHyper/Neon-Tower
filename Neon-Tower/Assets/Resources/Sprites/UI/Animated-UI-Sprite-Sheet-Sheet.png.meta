@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: 51285413f23ddde43adc86d94dd16543
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animated-UI-Sprite-Sheet-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 32, y: 32, z: 32, w: 32}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0effc04a3d4750419b5d784347a2a62
+      internalID: 1275013095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animated-UI-Sprite-Sheet-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1440
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 32, y: 32, z: 32, w: 32}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c82889dd0061bf5408c8cc65ab4ebc7e
+      internalID: 2059815238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animated-UI-Sprite-Sheet-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1440
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd95d46032669b42bdee517304b826b
+      internalID: -985913416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animated-UI-Sprite-Sheet-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1440
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2df58626da087d4c880f24e096751bb
+      internalID: -1205631988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Animated-UI-Sprite-Sheet-Sheet_0: 1275013095
+      Animated-UI-Sprite-Sheet-Sheet_1: 2059815238
+      Animated-UI-Sprite-Sheet-Sheet_10: 1796778759
+      Animated-UI-Sprite-Sheet-Sheet_11: -66276401
+      Animated-UI-Sprite-Sheet-Sheet_12: 1252637148
+      Animated-UI-Sprite-Sheet-Sheet_13: -366669214
+      Animated-UI-Sprite-Sheet-Sheet_14: -2117136796
+      Animated-UI-Sprite-Sheet-Sheet_15: 2052410442
+      Animated-UI-Sprite-Sheet-Sheet_16: -1357809314
+      Animated-UI-Sprite-Sheet-Sheet_17: 1482992067
+      Animated-UI-Sprite-Sheet-Sheet_18: -900808489
+      Animated-UI-Sprite-Sheet-Sheet_19: 999084503
+      Animated-UI-Sprite-Sheet-Sheet_2: -985913416
+      Animated-UI-Sprite-Sheet-Sheet_20: 1556219335
+      Animated-UI-Sprite-Sheet-Sheet_21: 1879122390
+      Animated-UI-Sprite-Sheet-Sheet_22: -390796337
+      Animated-UI-Sprite-Sheet-Sheet_23: 104530116
+      Animated-UI-Sprite-Sheet-Sheet_24: -1836623376
+      Animated-UI-Sprite-Sheet-Sheet_25: -759013016
+      Animated-UI-Sprite-Sheet-Sheet_26: 1754965914
+      Animated-UI-Sprite-Sheet-Sheet_27: 761480739
+      Animated-UI-Sprite-Sheet-Sheet_28: 789546505
+      Animated-UI-Sprite-Sheet-Sheet_29: -112715251
+      Animated-UI-Sprite-Sheet-Sheet_3: -1205631988
+      Animated-UI-Sprite-Sheet-Sheet_30: -426230874
+      Animated-UI-Sprite-Sheet-Sheet_31: -1317507486
+      Animated-UI-Sprite-Sheet-Sheet_4: -1299737989
+      Animated-UI-Sprite-Sheet-Sheet_5: 73542751
+      Animated-UI-Sprite-Sheet-Sheet_6: -181274712
+      Animated-UI-Sprite-Sheet-Sheet_7: 580989364
+      Animated-UI-Sprite-Sheet-Sheet_8: -1044769510
+      Animated-UI-Sprite-Sheet-Sheet_9: 294208968
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
