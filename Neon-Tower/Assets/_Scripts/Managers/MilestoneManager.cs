@@ -36,14 +36,28 @@ public class MilestoneManager : MonoBehaviour
         }
 
         int smallestOpenMilestone = _openMilestoneMarks.Min();
-        if (CurrentHeight > smallestOpenMilestone) 
+        if (CurrentHeight > smallestOpenMilestone)
         {
-            _completeMilestoneMarks.Add(smallestOpenMilestone);
-            _openMilestoneMarks.Remove(smallestOpenMilestone);
-            CompleteMileStoneAt(CurrentHeight);
-            FreezeAllObjectsBelow(CurrentHeight);
-            WindManager.Instance.IncreaseWindInsensity();
+            MileStoneReached(CurrentHeight, smallestOpenMilestone);
         }
+    }
+
+    private void MileStoneReached(int CurrentHeight, int smallestOpenMilestone)
+    {
+        _completeMilestoneMarks.Add(smallestOpenMilestone);
+        _openMilestoneMarks.Remove(smallestOpenMilestone);
+        CompleteMileStoneAt(CurrentHeight);
+        FreezeAllObjectsBelow(CurrentHeight);
+        MoveDestructionZoneToMilestone(CurrentHeight);
+        WindManager.Instance.IncreaseWindInsensity();
+    }
+
+    private void MoveDestructionZoneToMilestone(int CurrentHeight)
+    {
+        int offset = 2;
+        GameObject destructionZone = GameObject.FindWithTag("DestructionZone");
+        Vector3 destructionZonePosition = destructionZone.transform.position;
+        destructionZone.transform.position = new(destructionZonePosition.x, CurrentHeight-offset ,destructionZonePosition.z);
     }
 
     private void FreezeAllObjectsBelow(int currentHeight)
