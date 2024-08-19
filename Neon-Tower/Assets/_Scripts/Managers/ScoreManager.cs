@@ -47,6 +47,11 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreText();
     }
 
+    public void ShowScoreScreen()
+    {
+        throw new System.NotImplementedException();
+    }
+
     private void UpdateScoreText()
     {
         string newScoreText = "Score: " + ((int)_score).ToString();

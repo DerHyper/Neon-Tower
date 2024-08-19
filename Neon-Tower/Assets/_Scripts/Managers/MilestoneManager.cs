@@ -14,7 +14,7 @@ public class MilestoneManager : MonoBehaviour
     private List<int> _openMilestoneMarks;
     [SerializeField]
     private List<int> _completeMilestoneMarks; // Has no use jet, might me used in Scoreboard later.
-
+    private bool _goalReached = false;
     public static MilestoneManager Instance;
     private void Awake()
     {
@@ -30,9 +30,13 @@ public class MilestoneManager : MonoBehaviour
 
     public void CheckMilestoneReached(int CurrentHeight)
     {
-        if (_openMilestoneMarks.Count <= 0)
+        if (_openMilestoneMarks.Count <= 0 && _goalReached)
         {
             return;
+        }
+        else if (_openMilestoneMarks.Count <= 0 && !_goalReached)
+        {
+            ReachedGoal();
         }
 
         int smallestOpenMilestone = _openMilestoneMarks.Min();
@@ -40,6 +44,11 @@ public class MilestoneManager : MonoBehaviour
         {
             MileStoneReached(CurrentHeight, smallestOpenMilestone);
         }
+    }
+
+    private void ReachedGoal()
+    {
+        ScoreManager.Instance.ShowScoreScreen();
     }
 
     private void MileStoneReached(int CurrentHeight, int smallestOpenMilestone)
@@ -66,7 +75,7 @@ public class MilestoneManager : MonoBehaviour
 
         foreach (var building in buildings)
         {
-            building.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            building.Freeze();
         }
     }
 
