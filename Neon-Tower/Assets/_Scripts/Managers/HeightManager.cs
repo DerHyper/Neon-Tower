@@ -48,8 +48,8 @@ public class HeightManager : MonoBehaviour
     private void UpdateHeightUI(float height)
     {
         Vector2 uiPosition = HeigtScoreUI.anchoredPosition;
-        HeigtScoreUI.anchoredPosition = new(uiPosition.x, height+0.1f);
-        string scoreText = "Height: " + (Math.Round(height)).ToString() + "m";
+        HeigtScoreUI.anchoredPosition = new(uiPosition.x, height);
+        string scoreText = (Math.Round(height)).ToString() + "m";
         HeightScoreLabel.text = scoreText;
     }
 
