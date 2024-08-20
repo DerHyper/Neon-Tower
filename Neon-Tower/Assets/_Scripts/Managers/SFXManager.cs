@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,8 @@ public class SFXManager : MonoBehaviour
     private List<AudioClip> _buildingImpact;
     [SerializeField]
     private float _buildingImpactVolume= 1;
+    [SerializeField]
+    private float buildingImpactMinimum = 3;
     [SerializeField]
     private List<AudioClip> _buildingDestroy;
     [SerializeField]
@@ -60,9 +63,18 @@ public class SFXManager : MonoBehaviour
     {
         CreateSound(_spawnBuilding, _spawnBuildingVolume);
     }
-    public void PlayBuildingImpact()
+    public void PlayBuildingImpact(float impact)
     {
-        CreateRandomSound(_buildingImpact, _buildingImpactVolume);
+        Debug.Log("Magnitude: "+impact+" Needed: "+ buildingImpactMinimum);
+        if (impact < buildingImpactMinimum)
+        {
+            Debug.Log("Sound Dead");
+            return;
+        }
+        Debug.Log("Sound BOOM");
+        float impactVolume = Math.Min(impact/12f,1f);
+        float volume = impactVolume*_buildingImpactVolume;
+        CreateRandomSound(_buildingImpact, volume);
     }
     public void PlayBuildingDestroy()
     {
@@ -71,7 +83,7 @@ public class SFXManager : MonoBehaviour
 
     private void CreateRandomSound(List<AudioClip> clips, float volume)
     {
-        int randomIndex = Random.Range(1, clips.Count-1);
+        int randomIndex = UnityEngine.Random.Range(1, clips.Count-1);
         CreateSound(clips[randomIndex], volume);
     }
 

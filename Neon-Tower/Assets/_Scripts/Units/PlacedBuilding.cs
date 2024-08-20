@@ -40,8 +40,20 @@ public class PlacedBuilding : MonoBehaviour
         {
             return;
         }
+
+        // Switch out of falling State
         IsFalling = false;
         gameObject.layer = 0; // Default (Raycasts can now hit for height calculation)
+
+        // If fast enough play HitSound
+        List<ContactPoint2D> contactPoints = new List<ContactPoint2D>();
+        other.GetContacts(contactPoints);
+        float impulse = 0;
+        foreach (ContactPoint2D point in contactPoints)
+        {
+            impulse += point.normalImpulse;
+        }
+        SFXManager.Instance.PlayBuildingImpact(impulse);
     }
 
     private void OnMouseEnter()
@@ -94,6 +106,7 @@ public class PlacedBuilding : MonoBehaviour
     {
         RefundCostsAndScore();
         VFXManager.Instance.BuildingExplosion(gameObject.transform.position);
+        SFXManager.Instance.PlayBuildingDestroy();
         Destroy(gameObject);
     }
 

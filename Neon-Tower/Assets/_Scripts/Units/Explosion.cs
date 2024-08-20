@@ -26,6 +26,7 @@ public class Explosion : MonoBehaviour
             instantiatedFragment.AddComponent<Rigidbody2D>().AddForce(distanceFromCenter*_energy);
             instantiatedFragment.AddComponent<ExplosionFragment>();
         }
+        SFXManager.Instance.PlayBuildingDestroy();
 
         Invoke(nameof(SelfDestroy), 2);
     }
