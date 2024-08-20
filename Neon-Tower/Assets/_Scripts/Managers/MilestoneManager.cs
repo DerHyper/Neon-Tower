@@ -37,6 +37,7 @@ public class MilestoneManager : MonoBehaviour
         else if (_openMilestoneMarks.Count <= 0 && !_goalReached)
         {
             ReachedGoal();
+            return;
         }
 
         int smallestOpenMilestone = _openMilestoneMarks.Min();
@@ -48,7 +49,8 @@ public class MilestoneManager : MonoBehaviour
 
     private void ReachedGoal()
     {
-        ScoreManager.Instance.ShowScoreScreen();
+        _goalReached = true;
+        ScoreScreenManager.Instance.ShowScoreScreen();
     }
 
     private void MileStoneReached(int CurrentHeight, int smallestOpenMilestone)
@@ -75,7 +77,10 @@ public class MilestoneManager : MonoBehaviour
 
         foreach (var building in buildings)
         {
-            building.Freeze();
+            if (!building.IsFalling)
+            {
+                building.Freeze();
+            }
         }
     }
 
@@ -84,5 +89,6 @@ public class MilestoneManager : MonoBehaviour
         Quaternion rotation = Quaternion.identity;
         Vector3 position = new(0, currentHeight, 0);
         Instantiate(_milestonePlatformPrefab, position, rotation, _milestonePlatformParent);
+        SFXManager.Instance.PlayMilestone();
     }
 }

@@ -45,6 +45,7 @@ public class SpawnManager : MonoBehaviour
         // building.ConsumedAmounts = currentBuilding.ConsumesAmounts;
         building.GeneratesAmount = currentBuilding.GeneratesAmount;
         building.GeneratesUnit = currentBuilding.GeneratesUnit;
+        SFXManager.Instance.PlaySpawnBuilding();
 
     }
 }

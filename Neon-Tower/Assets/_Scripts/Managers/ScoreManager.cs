@@ -7,7 +7,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public TMP_Text scoreText;
-    private float _score = 0;
+    public float Score {get; private set;}
     public static ScoreManager Instance { get; private set; }
 
     private void Awake()
@@ -23,6 +23,9 @@ public class ScoreManager : MonoBehaviour
             Instance = this;
         }
     }
+    private void Start() {
+        Score = 0;
+    }
     private void FixedUpdate()
     {
         RemoveScore(Time.fixedDeltaTime);
@@ -30,31 +33,26 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int amount)
     {
-        _score += amount;
+        Score += amount;
         UpdateScoreText();
     }
 
     public void RemoveScore(float amount)
     {
-        if (_score - amount > 0)
+        if (Score - amount > 0)
         {
-            _score -= amount;
+            Score -= amount;
         }
         else
         {
-            _score = 0;
+            Score = 0;
         }
         UpdateScoreText();
     }
 
-    public void ShowScoreScreen()
-    {
-        throw new System.NotImplementedException();
-    }
-
     private void UpdateScoreText()
     {
-        string newScoreText = "Score: " + ((int)_score).ToString();
+        string newScoreText = "Score: " + ((int)Score).ToString();
         scoreText.text = newScoreText;
     }
 }
