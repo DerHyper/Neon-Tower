@@ -1898,8 +1898,8 @@ MonoBehaviour:
   _milestoneRachedVolume: 0.8
   _buildingSelect: {fileID: 8300000, guid: 7d9371921d7e0d04ab9c51969eb2db90, type: 3}
   _buildingSelectVolume: 1
-  _spawnBuilding: {fileID: 8300000, guid: 3c2114a7b053cd84ea345fe816f37674, type: 3}
-  _spawnBuildingVolume: 0.8
+  _spawnBuilding: {fileID: 8300000, guid: f0411d3cf90b56c429fad537a2301936, type: 3}
+  _spawnBuildingVolume: 0.6
   _buildingImpact:
   - {fileID: 8300000, guid: 97d3fd0f716739d45939442c2b4b87de, type: 3}
   - {fileID: 8300000, guid: 45c3f38f4c50d0244a0ed9fff8c83c85, type: 3}
