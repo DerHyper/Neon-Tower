@@ -29,7 +29,7 @@ public class PlacedBuilding : MonoBehaviour
     {
         if (!_isStatic && other.gameObject.tag.Equals("DestructionZone"))
         {
-            DestroySelf();
+            SelfDestroy();
         }
     }
 
@@ -68,23 +68,11 @@ public class PlacedBuilding : MonoBehaviour
         }
     }
 
-
     public void Freeze()
     {
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         _isStatic = true;
     }
-
-
-    private void DestroySelf()
-    {
-        Debug.Log("BOOM");
-
-        RefundCostsAndScore();
-
-        Destroy(gameObject);
-    }
-
 
     private void RefundCostsAndScore()
     {
@@ -105,6 +93,7 @@ public class PlacedBuilding : MonoBehaviour
     private void SelfDestroy()
     {
         RefundCostsAndScore();
+        VFXManager.Instance.BuildingExplosion(gameObject.transform.position);
         Destroy(gameObject);
     }
 
