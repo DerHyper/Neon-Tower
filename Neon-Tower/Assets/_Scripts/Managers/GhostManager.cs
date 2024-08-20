@@ -32,6 +32,7 @@ public class GhostManager : MonoBehaviour
     }
     private void Start() 
     {
+        UpdateCurrentBuilding(SpawnManager.Instance.currentBuilding);
         if (_guidlines)
         {
             _guidlines = Instantiate(_guidlines);   
