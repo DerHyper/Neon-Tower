@@ -416,6 +416,7 @@ Transform:
   - {fileID: 1702998697}
   - {fileID: 1414759148}
   - {fileID: 1061758787}
+  - {fileID: 1305004639}
   m_Father: {fileID: 221803843}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &54641403
@@ -1253,6 +1254,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7171a95b142ec7e4eacafee8b01ef86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sfxParent: {fileID: 1305004639}
+  _uiButton: {fileID: 8300000, guid: bc0f67d632ddb6849ab067badd74afd1, type: 3}
+  _uiButtonVolume: 1
+  _milestoneRached: {fileID: 0}
+  _milestoneRachedVolume: 1
+  _buildingSelect: {fileID: 8300000, guid: 7d9371921d7e0d04ab9c51969eb2db90, type: 3}
+  _buildingSelectVolume: 1
+  _spawnBuilding: {fileID: 0}
+  _spawnBuildingVolume: 1
+  _buildingImpact: []
+  _buildingImpactVolume: 1
+  _buildingDestroy: []
+  _buildingDestroyVolume: 1
 --- !u!1 &238130492
 GameObject:
   m_ObjectHideFlags: 0
@@ -6301,6 +6315,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281362820}
   m_CullTransparentMesh: 1
+--- !u!1 &1305004638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1305004639}
+  m_Layer: 0
+  m_Name: SoundEffects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1305004639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305004638}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 43258378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1313812979
 GameObject:
   m_ObjectHideFlags: 0
@@ -7617,6 +7662,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 222339861}
+        m_TargetAssemblyTypeName: SFXManager, Assembly-CSharp
+        m_MethodName: PlayBuildingSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1564560655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8554,6 +8611,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 222339861}
+        m_TargetAssemblyTypeName: SFXManager, Assembly-CSharp
+        m_MethodName: PlayBuildingSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1777049452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8995,6 +9064,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1952500008}
           m_ObjectArgumentAssemblyTypeName: BuildingInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 222339861}
+        m_TargetAssemblyTypeName: SFXManager, Assembly-CSharp
+        m_MethodName: PlayBuildingSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9969,6 +10050,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 2098781413}
           m_ObjectArgumentAssemblyTypeName: BuildingInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 222339861}
+        m_TargetAssemblyTypeName: SFXManager, Assembly-CSharp
+        m_MethodName: PlayBuildingSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
